@@ -4,7 +4,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const analyzeFeedback = async (title, description) => {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const prompt = `Analyse this product feedback. Return ONLY valid JSON with no extra text, no markdown, no code blocks.
 
@@ -52,7 +52,7 @@ Rules:
 
 const getWeeklySummary = async (feedbackList) => {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const feedbackText = feedbackList
       .map((f) => `- ${f.title}: ${f.ai_summary || f.description}`)
