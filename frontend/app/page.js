@@ -10,7 +10,7 @@ export default function Home() {
     submitterEmail: '',
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(null); // 'success' | 'error'
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const validate = () => {
@@ -61,32 +61,26 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-indigo-600 mb-2">FeedPulse</h1>
           <p className="text-gray-500 text-lg">Share your feedback and help us improve</p>
         </div>
 
-        {/* Success Message */}
         {status === 'success' && (
           <div className="bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded mb-6">
             ✅ Thank you! Your feedback has been submitted successfully.
           </div>
         )}
 
-        {/* Error Message */}
         {status === 'error' && (
           <div className="bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded mb-6">
             ❌ Something went wrong. Please try again.
           </div>
         )}
 
-        {/* Form */}
         <div className="bg-white rounded-2xl shadow-md p-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">Submit Feedback</h2>
-
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Title */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Title <span className="text-red-500">*</span>
@@ -102,7 +96,6 @@ export default function Home() {
               {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title}</p>}
             </div>
 
-            {/* Category */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Category <span className="text-red-500">*</span>
@@ -121,7 +114,6 @@ export default function Home() {
               {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
             </div>
 
-            {/* Description */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Description <span className="text-red-500">*</span>
@@ -141,7 +133,6 @@ export default function Home() {
               )}
             </div>
 
-            {/* Name */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Your Name <span className="text-gray-400">(optional)</span>
@@ -155,7 +146,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Your Email <span className="text-gray-400">(optional)</span>
@@ -169,7 +159,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -180,13 +169,15 @@ export default function Home() {
           </form>
         </div>
 
-        {/* Admin link */}
         <p className="text-center text-gray-400 text-sm mt-6">
           Are you an admin?{' '}
           <a href="/dashboard" className="text-indigo-500 hover:underline">
             Go to Dashboard
           </a>
         </p>
+        <footer className="text-center text-gray-400 text-xs mt-4 pb-4">
+          © 2026 FeedPulse — Powered by Gemini AI
+        </footer>
       </div>
     </main>
   );
